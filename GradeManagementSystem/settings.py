@@ -26,6 +26,7 @@ SECRET_KEY = 's1_-6b-(ou%(3yg1*(^sw5w$4k2$u_x=-%wkp4=&1g%2d9n!2i'
 DEBUG = True
 
 ALLOWED_HOSTS = ["*"]
+CSRF_TRUSTED_ORIGINS = ['*']
 
 
 # Application definition
