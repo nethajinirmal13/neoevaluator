@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>
+		Grade Management System Login
+	</title>
+</head>
+<body>
+	{% load static %}
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+	<link rel="stylesheet" type="text/css" href="{% static 'gms/style.css' %}"/>
+	
+	<div class="login">
+		<hr>
+		<img src="{% static 'gms/images/neo.png' %}"  style="float:left;">
+		<h2 style="text-align: left;"><font color="darkred">Iamneo Evaluator</font></h2>	
+		
+		<h2 style="text-align: center;">Grade Management Solution</h1>
+		<hr>
+	</div>
+	{% if error %}
+		<h4 style="color:#FF0000;text-align: center;">Invalid Credentials</h4>
+	{% endif %}
+
+
+	
+    <div class="container">    
+    <div id="loginbox" style="margin-top:50px;" class="mainbox col-md-6 col-md-offset-3 col-sm-8 col-sm-offset-2">                    
+        <div class="panel panel-info" >
+                <div class="panel-heading" style="background:rgb(255, 0, 0);">
+                    <div style="margin: 0 auto; color:rgb(255,255,255); ">LOGIN</div>
+                </div>     
+
+                <div style="padding-top:30px; " class="panel-body" >
+
+                    <div style="display:none" id="login-alert" class="alert alert-danger col-sm-12"></div>
+                        
+                    <form action="/login/" method="post" id="loginform" class="form-horizontal" role="form">
+                        {% csrf_token %}
+                        <div style="margin-bottom: 25px" class="input-group">
+                                    <span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
+                                    <input id="username" name="user_name" type="text" placeholder="Username"  class="form-control" required>                       
+                        </div>
+                            
+                        <div style="margin-bottom: 25px" class="input-group">
+                                    <span class="input-group-addon"><i class="glyphicon glyphicon-lock"></i></span>
+                                    <input id="pwd" name="password" type="password" placeholder="Password" class="form-control" required>
+                                </div>
+                        <select name="role" class="form-control" style="width:40%;">
+						 	<option value="student">Team</option>
+						 	<option value="faculty">Evaluator</option>
+						 	<option value="admin">Admin</option>
+						</select><br>
+
+                            <div style="margin-top:10px;" class="form-group">
+                               
+                                <div class="col-sm-12 controls">
+                                	<button class="btn btn-danger" type="submit" style="width: 100px;background:rgb(255, 0, 0);" >  Login  </button>
+                                </div>
+                            </div>   
+                        </form>     
+                    </div>                     
+                </div>  
+        </div> 
+    </div>
+    
+</body>
+</html>
